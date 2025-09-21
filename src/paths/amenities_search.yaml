@@ -1,0 +1,36 @@
+get:
+  summary: "Amenities Search"
+  description: "Returns a list of amenities that match the search query."
+  parameters:
+    - name: query
+      in: query
+      description: "Search term for filtering amenities"
+      required: true
+      schema:
+        type: string
+        example: "air"
+  responses:
+    '200':
+      description: "Returns a list of matching amenities."
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              results:
+                type: array
+                items:
+                  type: string
+                description: "List of amenities that match the provided search query."
+                example:
+                  - "Centrally Air-Conditioned"
+                  - "Distance From Airport (kms)"
+              count:
+                type: integer
+                description: "Total number of amenities matching the search query."
+                example: 2
+              query:
+                type: string
+                description: "Given search query"
+                example: "air"
+            
